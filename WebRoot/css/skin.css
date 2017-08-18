@@ -1,0 +1,292 @@
+﻿#main
+{
+    background-color: #e2e2e2;
+	background-image: -moz-linear-gradient(top, #eeeeee, #e2e2e2);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#eeeeee), to(#e2e2e2));
+	background-image: -webkit-linear-gradient(top, #eeeeee, #e2e2e2);
+	background-image: -o-linear-gradient(top, #eeeeee, #e2e2e2);
+	background-image: linear-gradient(to bottom, #eeeeee, #e2e2e2);
+	background-repeat: repeat-x;
+	border-bottom:1px solid #c1c1c1;
+}
+#col1
+{
+  /* border: #404040 1px solid;*/
+}
+#col3
+{
+    /*border: 1px #9ac1e0 solid;
+    border-top: 0px #9ac1e0 solid;*/
+}
+.tabs_items
+{
+    background-color: #e2e2e2;
+	background-image: -moz-linear-gradient(top, #eeeeee, #e2e2e2);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#eeeeee), to(#e2e2e2));
+	background-image: -webkit-linear-gradient(top, #eeeeee, #e2e2e2);
+	background-image: -o-linear-gradient(top, #eeeeee, #e2e2e2);
+	background-image: linear-gradient(to bottom, #eeeeee, #e2e2e2);
+	background-repeat: repeat-x;
+	text-shadow:0 1px 0 rgba(255,255,255,0.6);
+	border-bottom:#CECECE 1px solid;
+}
+.tabs_items li
+{
+   	border-left:#DDD 1px solid;
+	border-top:#DDD 1px solid;
+	border-right:#DDD 1px solid;
+}
+.banner
+{
+    height: 68px;
+/*background-color: #2F96B4;
+    background-image: -webkit-linear-gradient(top, #52B2CF, #2F96B4);
+background-image: -o-linear-gradient(top, #52B2CF, #2F96B4);
+background-image: linear-gradient(to bottom, #52B2CF, #2F96B4);
+background-repeat: repeat-x;
+   border-color: #64CCEB #64CCEB #184552 #2F96B4; */ 
+background:url(images/banner_bg.gif) repeat-x;
+-webkit-border-radius: 0;
+border-radius: 0;
+}
+.banner_left
+{
+    height: 68px;
+    background: url(images/banner_title.jpg) no-repeat;
+}
+.right_top
+{
+    top:0px;
+    width:440px;
+    height:30px;
+    background: url(images/menu_top.png) no-repeat;
+}
+.right_top a:link, a:visited {
+	color:#184552;
+	text-decoration:none;
+	vertical-align:middle;
+}
+.right_top a:hover, a:active {
+	color:#fff;
+	text-decoration:none;
+}
+.banner_menu{ width:100%; height:28px; 
+              background-color: #2F96B4;
+              background-image: -webkit-linear-gradient(top, #52B2CF, #2F96B4);
+              background-image: -o-linear-gradient(top, #52B2CF, #2F96B4);
+              background-image: linear-gradient(to bottom, #52B2CF, #2F96B4);
+              background-repeat: repeat-x;
+              border-color: #64CCEB #64CCEB #184552 #2F96B4;
+              -webkit-border-radius: 0;
+              border-radius: 0;
+              -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+              box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+              }
+.banner_menu li{ float:left;  font:bold 14px/28px 'BebasNeueRegular', Helvetica, Arial, sans-serif;  padding:0 20px; color:#fff;}
+.banner_menu li:hover{ background-color:#006ca9;}
+.banner_menu li a{  text-decoration:none;
+font-size: 15px;
+color: #184552;
+text-shadow: 0 1px 0 #64CCEB;
+}
+.banner_menu li a:hover{  text-decoration:none;
+font-size: 15px;
+color: #fff;
+}
+
+.foot
+{
+cursor: move;
+background-color: #E2E2E2;
+text-shadow: 0 1px 0 #FAFAFA;
+background-image: -webkit-linear-gradient(top, #F2F2F2, #E2E2E2);
+background-image: -o-linear-gradient(top, #F2F2F2, #E2E2E2);
+background-image: linear-gradient(to bottom, #F2F2F2, #E2E2E2);
+background-repeat: repeat-x;
+border-bottom: 1px solid #CCC;
+border-top: 1px solid #CCC;
+border-color: #CECECE;
+-webkit-border-radius: 0;
+}
+.foot_left {
+    font-family:Helvetica, Arial, sans-serif，'DroidSansRegular';
+    padding-left:5px;
+    color:#808080;
+}
+.foot_right
+{
+    background: none;
+}
+.menu li ul
+{
+    border-left: #9ac1e0 1px solid;
+    border-right: #9ac1e0 1px solid;
+}
+.menu li
+{
+    _height: 33px;
+    font: bold 14px/33px "微软雅黑";
+    background: url(images/title_menu_bg.gif) repeat-x;
+    color: #fff;
+    border-top:1px solid #000000;
+    border-left:1px solid  #000000;
+    border-right:1px solid  #000000;
+}
+.menu li:hover
+{
+    _height: 33px;
+    font: bold 14px/33px "微软雅黑";
+    background: url(images/title_menu_bg_hover.gif) repeat-x;
+    color: #fff;
+    border-top:0px solid #000000;
+    border-left:1px solid  #000000;
+    border-right:1px solid  #000000;
+}
+    .menu li ul li:hover {
+    background: url(images/title_menu_bg_hover01.gif) repeat-x;  
+        border-top:1px solid #000000;
+    border-left:1px solid  #000000;
+    border-right:1px solid  #000000;
+        _height: 33px;
+        overflow-x:hidden;
+    }
+.menu li a
+{
+    color: #fff;
+    padding-left: 5px;
+}
+.border_l_main
+{
+    border-left: 1px solid #cecece;
+}
+.border_r_main
+{
+    border-right: 1px solid #cecece;
+}
+.border_t_main
+{
+    border-top: 1px solid #cecece;
+}
+.border_b_main
+{
+    border-bottom: 1px solid #9ac1e0x;
+}
+
+.splitter{ border-top:0px;}
+
+.right_lubobao{
+width: 205px;
+height:30px;
+text-align:center;
+color:#fff;
+font-family: '微软雅黑','BebasNeueRegular', Helvetica, Arial, sans-serif;
+font-weight :600 ;
+font-size:15px;
+background-color:#BD362F;
+background-image: linear-gradient(to bottom, #EE5F5B, #BD362F);
+background-repeat: repeat-x;
+border-top-color:#FCB6B4;
+border-bottom-color:#802420;
+border-top: 1px solid #bf2727;
+border-left: 1px solid #bf2727;
+border-right: 1px solid #bf2727;
+border-bottom: 0px solid #000;
+position:fixed;
+}
+
+/*
+
+.tabs_items
+{
+    background-color: #EDF7CF;
+}
+
+.tabs_items li
+{
+    background-color: #CCEB86;
+    background: url(images/nav_not_selected.gif) repeat-x;
+}
+
+
+.button_out
+{
+    background: url(images/button-bg.gif) 0px 0px repeat-x;
+}
+.button_over
+{
+    background: url(../Images/ToolButton/mover.gif) 0px 0px repeat-x;
+}
+
+.gridview th, .gridview tfoot td
+{
+    background: url(images/GridViewTitle.gif) repeat-x;
+    background-color: #D2EB90;
+}
+
+.gridview th:hover
+{
+    background: url(images/GridViewTitle_hover.gif) repeat-x;
+    background-color: #D2EB90;
+}
+
+.gridview tbody tr > th.first-child
+{
+    background: url(images/GridViewTitle.gif) repeat-x;
+}
+
+
+
+.gridview tbody .odd
+{
+    background-color: #EDF7CF;
+}
+
+.gridview tbody .hover
+{
+    background-color: #bfe284;
+}
+
+
+
+
+.edit_content th, .txt_bg
+{
+    background-color: #EDF7CF;
+}
+
+
+.combobox-icon
+{
+    background: url(images/icons_combobox.gif) no-repeat;
+    background-position: center;
+    position: absolute;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    top: 0px;
+    text-align: center;
+}
+
+.combobox-icon:hover
+{
+    background: url(images/icons_combobox_hover.gif) no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.login_bg
+{
+    background-image: url(Images/bg_login.gif);
+}
+
+
+.frame_div {
+    background-color: #EDF7CF;
+}
+
+.select_list li {
+
+background-color: #EDF7CF;
+}
+*/
+

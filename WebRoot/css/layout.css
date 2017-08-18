@@ -1,0 +1,304 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/*
+ * 定义常用布局
+
+/* 基础布局组 */
+
+/*
+     * 基础布局.
+     *
+     * |—————————–|
+     * | #header            |
+     * |—————————–|
+     * | #col1  | #col2     | <— #main
+     * | 205px  | flexible  |
+     * |        |           |
+     * |—————————–|
+     * | #footer            |
+     * |—————————–|
+     *
+     */
+
+#header {
+    position: relative;
+}
+
+/* 列容器#main */
+#main {
+    clear: both;
+    width: 100%;
+    position: fixed;
+    padding: 0px 0;
+    background-color: #404040;
+}
+
+/* 左列，默认的宽度是200 Pixel，添加垂直滚动条*/
+#col1 {
+    position: absolute;
+    width: 205px;
+    /*left: 100px;*/
+    right:0px;
+    top: 0px;
+    z-index: 11;
+    border: 1px #CECECE solid;
+    background-color: whitesmoke;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* 伸缩条 */
+#col2 {
+    position: absolute;
+    top:0px;
+    right:205px;
+    z-index: 5;
+    cursor: pointer;
+}
+/* 主区域 */
+#col3 {
+    position: absolute;
+    right: 218px;
+    top: 5px;
+    z-index: 3;
+    /*border:1px #c5dbec solid;
+		border-top:0px #c5dbec solid;*/
+    background-color: whitesmoke;
+}
+/*右列*/
+#col4 {
+    position: absolute;
+    width: 205px;
+    right: 0px;
+    top: 0px;
+    z-index: 4;
+    border: 1px #CECECE solid;
+    background-color: whitesmoke;
+    overflow:hidden;
+}
+/*后台首页布局*/
+ /* 左列，默认的宽度是200 Pixel，添加垂直滚动条*/
+    #col_1{
+        float: left;
+        width: 205px;
+        z-index: 1;
+		border:1px #CECECE solid;
+		background-color:whitesmoke;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    
+    /* 伸缩条 */
+    #col_2{
+		float:left;
+        z-index: 2;
+        cursor:pointer;
+    }
+	/* 主区域 */
+    #col_3{
+		position:absolute;
+		left:218px;
+		top:5px;
+		z-index: 3;
+		/*border:1px #c5dbec solid;
+		border-top:0px #c5dbec solid;*/
+		background-color: whitesmoke;
+	}
+
+
+#col1_content {
+    z-index: 4;
+}
+
+#col2_content {
+    z-index: 2;
+}
+
+/* IE5.x, IE6 */
+#col1_content, #col2_content {
+    position: relative;
+}
+
+#footer {
+    clear: both;
+    display: block;
+}
+
+
+/* 区块布局模板 */
+
+/*
+     * 固定宽度的布局
+     * 将容器的样式设置为static-layout即可
+     * 
+     * |—————————–|
+     * | .scol1 | .scol3    | .scol2 | <— container.static-layout
+     * | 200px  | flexible  | 200px  |
+     * |        |           |        |
+     * |—————————–|
+     *
+     */
+
+/* 列容器.static-layout */
+.static-layout {
+    clear: both;
+    width: auto;
+}
+
+    /* 左列，默认的宽度是200 Pixel */
+    .static-layout .scol1 {
+        float: left;
+        width: 200px;
+        z-index: 3;
+    }
+
+    /* 右列，默认的宽度是200 Pixel */
+    .static-layout .scol2 {
+        float: right;
+        width: 200px;
+        z-index: 5;
+    }
+
+    /* 居中自适应 */
+    .static-layout .scol3 {
+        width: auto;
+        margin: 0 200px;
+        z-index: 1;
+    }
+
+.scol1 .scol1_content {
+    z-index: 4;
+}
+
+.scol2 .scol2_content {
+    z-index: 6;
+}
+
+.scol3 .scol3_content {
+    z-index: 2;
+}
+
+/* IE5.x, IE6 */
+.scol1_content, .scol2_content, .scol3_content {
+    position: relative;
+}
+
+.hideboth .scol1, .hideboth .scol2 {
+    display: none;
+}
+
+.hideboth .scol3 {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.hideleft .scol1 {
+    display: none;
+}
+
+.hideleft .scol3 {
+    margin-left: 0;
+    margin-right: 200px;
+}
+
+.hideright .scol2 {
+    display: none;
+}
+
+.hideright .scol3 {
+    margin-left: 200px;
+    margin-right: 0;
+}
+
+/*
+     * 自适应宽度的布局
+     * 在容器内直接应用区块布局模板进行区块布局
+     * 将容器的样式设置为block-layout，容器内的列可以是以下预设值：
+     *
+     * left        | right
+     * ———————–
+     * 50%         | 50%
+     * 25%      | 75%
+     * 33.333%  | 66.666%
+     * 38.2%    | 61.8%
+     * 66.666%  | 33.333%
+     * 70%      | 30%
+     * 75%      | 25%
+     * 61.8%    | 8.2%
+     *
+     */
+
+.block-layout {
+    width: auto;
+    overflow: hidden;
+}
+
+/* 预设列定义 */
+.c50l, .c25l, .c30l, .c33l, .c38l, .c66l, .c70l, .c75l, .c62l {
+    float: left;
+}
+
+.c50r, .c25r, .c30r, .c33r, .c38r, .c66r, .c70r, .c75r, .c62r {
+    float: right;
+    margin-left: -5px;
+}
+
+.c50l, .c50r {
+    width: 50%;
+}
+
+.c25l, .c25r {
+    width: 25%;
+}
+
+.c30l, .c30r {
+    width: 30%;
+}
+
+.c33l, .c33r {
+    width: 33.333%;
+}
+
+.c38l, .c38r {
+    width: 38.2%;
+}
+
+.c66l, .c66r {
+    width: 66.666%;
+}
+
+.c70l, .c70r {
+    width: 70%;
+}
+
+.c75l, .c75r {
+    width: 75%;
+}
+
+.c62l, .c62r {
+    width: 61.8%;
+}
+
+/* 预设列内容容器样式 */
+.blc {
+    padding: 0 0.5em;
+}
+
+.blcl {
+    padding: 0 0 0 0;
+}
+
+.blcr {
+    padding: 0 0 0 0;
+}
+
+/* @end */
+
+.align-right {
+    text-align: right;
+}
+
+.align-center {
+    text-align: center;
+}

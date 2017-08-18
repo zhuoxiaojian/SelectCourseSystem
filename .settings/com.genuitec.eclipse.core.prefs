@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/bootstrap-3.3.5,WebRoot/ace-tab/assets,WebRoot/js,src/struts.xml,src/ehcache.xml
+validator.Unchecked=

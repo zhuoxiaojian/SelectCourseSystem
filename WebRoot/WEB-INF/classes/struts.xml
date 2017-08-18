@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="struts2" extends="struts-default,json-default">
+		<!-- ==============================配置登录的Action==================================== -->
+		<action name="RegisterAction" class="cn.edu.gdin.action.RegisterAction"
+			method="login">
+			<param name="username">${userName}</param>
+			<param name="password">${password}</param> 
+			<result name="success">/jsp/myframe.jsp</result>
+			<result name="login">/Tjsp/Tmain.jsp</result>
+			<result name="error">/Ajsp/Amain.jsp</result>
+			<result name="input">/login.jsp</result>
+			<!-- <result name="invalid.token">/login.jsp</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="token" />
+ 			-->
+		</action>
+
+
+		<!-- ==============================配置修改密码的Action==================================== -->
+		<action name="UpPwd" class="cn.edu.gdin.action.RegisterAction"
+			method="UpPwd">
+			<result name="success" type="json">
+				<param name="root">resultData</param>
+			</result>
+		</action>
+		<action name="Code" class="cn.edu.gdin.action.RegisterAction"
+			method="Code">
+			<result name="success" type="json">
+				<param name="root">resultData</param>
+			</result>
+		</action>
+		<!-- ==============================配置退出的Action==================================== -->
+		<action name="Exit" class="cn.edu.gdin.action.RegisterAction">
+			<result>/login.jsp</result>
+		</action>
+
+		<!-- ==============================验证码的Action==================================== -->
+		<action name="CodeChange" class="cn.edu.gdin.action.CodeAction">
+			<result name="success" type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">imageStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+		</action>
+
+
+		<!-- ==============================学生个人信息的Action==================================== -->
+		<action name="StuInfo" class="cn.edu.gdin.action.StudentAction"
+			method="findStu">
+			<result name="success">/jsp/stuList.jsp</result>
+			<result name="error">/error.jsp</result>
+
+		</action>
+
+		<!-- ==============================学生个人信息修改的Action==================================== -->
+		<action name="xiugai" class="cn.edu.gdin.action.StudentAction"
+			method="modifyStu">
+			<result name="success" type="redirectAction">/StuInfo.action</result>
+			<result name="error">/error.jsp</result>
+
+		</action>
+
+
+		<!-- ==============================选课的Action==================================== -->
+		<action name="Select_Course" class="cn.edu.gdin.action.SelectCourseAction"
+			method="select_course">
+			<result name="JSONRESULT" type="json">
+				<param name="root">resul</param>
+			</result>
+		</action>
+
+
+
+
+		<!-- ==============================课程信息里的教师的Action==================================== -->
+		<action name="Teacher_info" class="cn.edu.gdin.action.TeacherAction"
+			method="Teach_info">
+			<result name="JSONRESULT" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+		<!-- ==============================教师信息的Action==================================== -->
+		<action name="Tea_Own" class="cn.edu.gdin.action.TeacherAction"
+			method="Tea_Info">
+			<result name="success">/Tjsp/TteaInfo.jsp</result>
+			<result name="input">/error.jsp</result>
+		</action>
+		<!-- ==============================修改教师信息的Action==================================== -->
+		<action name="Tea_Info" class="cn.edu.gdin.action.TeacherAction"
+			method="Up_TeIn">
+			<result name="success" type="redirectAction">/Tea_Own.action</result>
+			<result name="input">/error.jsp</result>
+		</action>
+
+		<!-- easyui -->
+		<action name="incidentDataProcessAction" class="cn.edu.gdin.action.IncidentDataProcessAction">
+			<result name="JSONRESULT" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+		<!-- 管理员 -->
+		<action name="adminCommonAction" class="cn.edu.gdin.Aaction.AdminCommonAction">
+			<result name="JSONRESULT" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<!-- 验证 -->
+		<action name="oldpwd" class="cn.edu.gdin.action.RegisterAction"
+			method="XiaoyanPwd">
+			<result name="success" type="json">
+				<param name="root">resultData</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">resultData</param>
+			</result>
+		</action>
+		<action name="chart4" class="cn.edu.gdin.Aaction.ChartBAction">
+		</action>
+		<action name="chart3" class="cn.edu.gdin.Aaction.ChartLAction">
+		</action>
+		<action name="chart2" class="cn.edu.gdin.Aaction.ChartSCAction">
+		</action>
+		<action name="chart1" class="cn.edu.gdin.Aaction.ChartSAction">
+		</action>
+		<action name="importEntityAction" class="cn.edu.gdin.Aaction.ImportEntityAction">
+			<result name="JSONRESULT" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

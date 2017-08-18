@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	">
+	<aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation"
+			value="classpath:hibernate.cfg.xml">
+		</property>
+         <property name="schemaUpdate" value="true">
+		</property>
+	</bean>
+	
+	 <bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="registerDao" class="cn.edu.gdin.dao.RegisterDao">
+	<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		</bean>
+	<bean id="registerService" class="cn.edu.gdin.service.RegisterService">
+	  <property name="registerDao" ref="registerDao"></property>
+	
+	</bean>
+	<bean id="registerAction" class="cn.edu.gdin.action.RegisterAction">
+	  <property name="registerService" ref="registerService"></property>
+	
+	</bean>
+	
+	<bean id="studentDao" class="cn.edu.gdin.dao.StudentDao">
+	  <property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="studentService" class="cn.edu.gdin.service.StudentService">
+	   <property name="studentDao" ref="studentDao"></property>
+	 
+	</bean>
+	<bean id="studentAction" class="cn.edu.gdin.action.StudentAction">
+	   <property name="studentService" ref="studentService"></property>
+	</bean>
+	
+	
+	<!-- course -->
+	<bean id="courseDao" class="cn.edu.gdin.dao.CourseDao">
+	  <property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="courseService" class="cn.edu.gdin.service.CourseService">
+	   <property name="courseDao" ref="courseDao"></property>
+	 
+	</bean>
+	<bean id="courseAction" class="cn.edu.gdin.action.CourseAction">
+	   <property name="courseService" ref="courseService"></property>
+	</bean>
+	
+	<!-- 选课 -->
+	<bean id="selectCourseDao" class="cn.edu.gdin.dao.SelectCourseDao">
+	  <property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="selectCourseService" class="cn.edu.gdin.service.SelectCourseService">
+	   <property name="selectCourseDao" ref="selectCourseDao"></property>
+	 
+	</bean>
+	<bean id="selectCourseAction" class="cn.edu.gdin.action.SelectCourseAction">
+	   <property name="selectCourseService" ref="selectCourseService"></property>
+	</bean>
+	
+	
+	<!-- 教师 -->
+	<bean id="teacherDao" class="cn.edu.gdin.dao.TeacherDao">
+	  <property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="teacherService" class="cn.edu.gdin.service.TeacherService">
+	   <property name="teacherDao" ref="teacherDao"></property>
+	 
+	</bean>
+	<bean id="teacherAction" class="cn.edu.gdin.action.TeacherAction">
+	   <property name="teacherService" ref="teacherService"></property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	<!-- 教师查看选课学生总数及具体信息 -->
+	<bean id="tCSCountDao" class="cn.edu.gdin.dao.TCSCountDao">
+	  <property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="tCSCountService" class="cn.edu.gdin.service.TCSCountService">
+	   <property name="tCSCountDao" ref="tCSCountDao"></property>
+	 
+	</bean>
+	<bean id="tCSCountAction" class="cn.edu.gdin.action.TCSCountAction">
+	   <property name="tCSCountService" ref="tCSCountService"></property>
+	</bean>
+	
+	<!-- 柱状图的生成 -->
+	<bean id="chartSCAction" class="cn.edu.gdin.Aaction.ChartSCAction">
+	   <property name="tCSCountService" ref="tCSCountService"></property>
+	</bean>
+	
+	<!-- 教师发布课程 -->
+	<bean id="incidentDataProcessDao" class="cn.edu.gdin.dao.IncidentDataProcessDaoImpl">
+	  <property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="incidentDataProcessService" class="cn.edu.gdin.service.IncidentDataProcessServiceImpl">
+	   <property name="incidentDataProcessDao" ref="incidentDataProcessDao"></property>
+	 
+	</bean>
+	<bean id="incidentDataProcessAction" class="cn.edu.gdin.action.IncidentDataProcessAction">
+	   <property name="incidentDataProcessService" ref="incidentDataProcessService"></property>
+	    <property name="tCSCountService" ref="tCSCountService"></property>
+	    <property name="courseService" ref="courseService"></property>
+	</bean>
+	
+	<!-- 管理员部分 -->
+	<bean id="adminCommonDao" class="cn.edu.gdin.Adao.impl.AdminCommonDaoImpl">
+	   <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="adminCommonService" class="cn.edu.gdin.Aservice.impl.AdminCommonServiceImpl">
+	  <property name="adminCommonDao" ref="adminCommonDao"></property>
+	</bean>
+	<bean id="adminCommonAction" class="cn.edu.gdin.Aaction.AdminCommonAction">
+	  <property name="adminCommonService" ref="adminCommonService"></property>
+	   <property name="courseService" ref="courseService"></property>
+	</bean>
+	<bean id="chartSAction" class="cn.edu.gdin.Aaction.ChartSAction">
+	   <property name="adminCommonService" ref="adminCommonService"></property>
+	</bean>
+	<bean id="chartLAction" class="cn.edu.gdin.Aaction.ChartLAction">
+	   <property name="adminCommonService" ref="adminCommonService"></property>
+	</bean>
+	<bean id="chartBAction" class="cn.edu.gdin.Aaction.ChartBAction">
+	   <property name="adminCommonService" ref="adminCommonService"></property>
+	</bean>
+	<bean id="importEntityAction" class="cn.edu.gdin.Aaction.ImportEntityAction">
+	   <property name="adminCommonService" ref="adminCommonService"></property>
+	</bean>
+</beans>

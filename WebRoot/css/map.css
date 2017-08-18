@@ -1,0 +1,425 @@
+﻿/* 地图导航 */
+* {
+	margin: 0;
+	padding: 0;
+}
+ol, ul, li, dd, dt, dl {
+	list-style: none;
+}
+#map {
+	overflow: hidden;
+	height: 100%;
+    background-color:whitesmoke;
+    /*background-image:url(../images/Map/mapBackGround.png);*/
+}
+#map Table {
+	width: auto;
+}
+#map th {
+	background-color: inherit;
+}
+#map td {
+	background-color: inherit;
+}
+#map .gridview tbody td {
+	background-color: #fff;
+}
+#map .gridview .odd {
+	background-color:#F9F9F9;
+}
+#map .gridview tbody tr.selected td{
+	background-color:#FBEC88;
+}
+#map .gridview tbody .hover {
+	background-color:#E9EDF9;
+}
+#map a:link, a:visited{
+        color:#0f77b9;
+        text-decoration:none;
+}
+#map a:hover, a:active {
+        color:#e17009;
+        text-decoration:none;
+}
+#mapNavToolbar {
+	height: 30px;
+	width: 100%;
+	background-color: #fff;
+	border-bottom:#c5dbec 1px solid;
+	line-height: 30px;
+	z-index: 15;
+}
+#mapNavToolbar .search{
+    margin-left:3px;
+    float: left;
+    width: 370px;
+    height: 26px;    
+    text-align:left;
+}
+
+#mapNavToolbar .search a{
+    color: #06f;
+    text-align: left;
+    text-decoration: underline;
+    padding:0;
+}
+
+#mapNavToolbar ul {
+	list-style: none;
+	margin: 0;
+	height: 20px;
+	text-align: right;
+}
+#mapNavToolbar ul li {
+	display: inline;
+	height: 28px;
+	line-height: 28px;
+	margin-right: 6px;
+}
+#mapNavToolbar a {
+	color: #666;
+	text-decoration: none;
+	font-size: 10px;
+	padding: 3px 0 3px 20px;
+	line-height: 30px;
+}
+#mapNavToolbar a:hover {
+	color: #06f;
+}
+.Pan {
+	background-image: url(../images/Map/maptoolbar_pan.png);
+	background-repeat: no-repeat;
+}
+.ZoomIn {
+	background-image: url(../images/Map/maptoolbar_rectZoomIn.png);
+	background-repeat: no-repeat;
+}
+.ZoomOut {
+	background-image: url(../images/Map/maptoolbar_rectZoomOut.png);
+	background-repeat: no-repeat;
+}
+.Full {
+	background-image: url(../images/Map/maptoolbar_full.png);
+	background-repeat: no-repeat;
+}
+.MeasureDistance {
+	background-image: url(../images/Map/maptoolbar_measureDistanceD.png);
+	background-repeat: no-repeat;
+}
+.MeasureArea {
+	background-image: url(../images/Map/maptoolbar_measureAreaD.png);
+	background-repeat: no-repeat;
+}
+.ClearAll {
+	background-image: url(../images/Map/maptoolbar_clearAll.png);
+	background-repeat: no-repeat;
+}
+.Print {
+	background-image: url(../images/Map/maptoolbar_print.png);
+	background-repeat: no-repeat;
+}
+.Mark {
+	background-image: url(../images/Map/maptoolbar_spaceSearch_point.png);
+	background-repeat: no-repeat;
+}
+.Find {
+	background-image: url(../images/Map/maptoolbar_spaceSearch_bufferSet_isDoBuffer.png);
+	background-repeat: no-repeat;
+}
+.StakeMark {
+	background-image: url(../images/Map/advance_search.gif);
+	background-repeat: no-repeat;
+}
+.navMark {
+	background-image: url(../images/Map/navMark.png);
+	background-repeat: no-repeat;
+}
+.pointSearch{
+    background-image: url(../images/Map/pointSearch.png);
+	background-repeat: no-repeat;
+}
+/* scalebar */
+.scalebar_cus_bottom-left {
+	left: 240px;
+	bottom: 18px;
+}
+/* layerControl */
+#layerControl {
+	position: absolute;
+	left: 0px;
+	top: 31px;
+	z-index: 15;
+	overflow: auto;
+}
+#layerControl ul {
+	list-style: none;
+	margin: 0;
+}
+#layerControl ul li {
+	list-style-type:none;
+	height:120px;
+	width:20px;
+	color:#287eb4;
+	font-size:12px;
+	padding:0px 10px;
+	line-height:20px;
+	text-align:center;
+	border-bottom:#c5dbec 1px solid;
+	border-right:#c5dbec 1px solid;
+	background:url(../images/Map/maptoolbg.gif) repeat;
+}
+#layerControl a {
+	color:#287eb4;
+	text-decoration:none
+}
+#layerControl a:hover {
+	color: #fe7800;
+}
+#layerControl a.selected {
+	color: #fe7800;
+}
+#layerList {
+	font-size:12px;
+	height: auto;
+	padding: 0px;
+}
+#layerList img{ border:0;}
+#layerList div{ display:inline-block; width:100%; height:22px; font: 13px/22px "微软雅黑"; background:url(../images/Map/popup_title_bg.gif) repeat-x; border-bottom:#c5dbec 1px solid;}
+#layerList div label{ float:left; padding-left:5px; width:100px;}
+#layerList div a{ float:right; display:inline; width:7px; height:6px; padding:5px 5px 0 0;}
+#layerList li{ padding-left:5px; line-height:25px;}
+#layerList li label{ padding-left:20px; background:url(../images/Map/tree_first.gif) no-repeat left;}
+#layerList li li{ padding-left:10px; line-height:22px;}
+#layerList li li label{ padding-left:0px; background:none;}
+#layerList li li:hover{ background-color:#d9e8fb;}
+
+.maplayer_show {
+	width: 18px;
+	height: 18px;
+	background-image: url(../images/Map/maplayer_show.png);
+}
+.maplayer_notshow {
+	width: 18px;
+	height: 18px;
+	background-image: url(../images/Map/maplayer_notshow.png);
+}
+.map-content {
+	width: 100%;
+	height: 100%;
+}
+.posFar{
+    position: absolute;
+    left: -999px;
+    top: -999px;    
+}
+/* 底图选择*/
+#MapType {
+	position: absolute;
+	right: 14px;
+	top: 5px;
+	z-index: 15;
+	overflow: auto;
+}
+#MapType ul {
+}
+#MapType ul li {
+	float:left;
+	font-size:12px;
+	height: 22px;
+	line-height: 22px;
+	margin-right: 6px;
+	padding:0 10px;
+	border:#c5dbec 1px solid;
+	background:url(../images/Map/maptoolbg.gif) repeat-x;
+}
+#MapType a {
+	color: #287eb4;
+	text-decoration: none;
+	line-height: 22px;
+}
+#MapType a:hover {
+	color: #fe7800;
+}
+#MapType .selected {
+	color: #fe7800;
+}
+#mapView {
+	position:fixed;
+	left:0px;
+	bottom:0px;
+	z-index:16;
+	width:100px;
+	height:30px;
+	color:#184552;
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+	background:url(../images/Map/maptoolbar_tab.gif) repeat-x;
+	border-top:1px solid #CCC;
+	border-right:1px solid #CCC;
+}
+#mapView a {
+	color:#287eb4;
+	text-decoration:none;
+}
+#mapView a:hover {
+	color:#9f0b0b;
+	text-decoration:none;
+}
+#mapView a.selected {
+	color:#fe7800;
+	text-decoration:none;
+}
+#gridView {
+	position:fixed;
+	left:101px;
+	bottom:0px;
+	z-index:16;
+	width:100px;
+	height:30px;
+	color:#c5dbec;
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+	background:url(../images/Map/maptoolbar_tab.gif) repeat-x;
+	border-top:1px solid #CCC;
+	border-right:1px solid #CCC;
+}
+#gridView a {
+	color:#287eb4;
+	text-decoration:none;
+}
+#gridView a:hover {
+	color:#9f0b0b;
+	text-decoration:none;
+}
+#gridView .selected {
+	color:#9f0b0b;
+	text-decoration:none;
+}
+/*地图查询窗口*/
+.query_result{ background-color:#FFF; padding:8px; width:100%; overflow: hidden;}
+.query_result li{ clear:both; list-style:none; padding-top:8px; padding-top:4px;overflow:hidden; margin: 4px 0 4px 0}
+.query_result li:hover{ background-color:#f3f3f3; cursor:pointer}
+.query_result li:first-child{ padding-top:0px;}
+.query_result li .icon{ float:left; width:25px; height:25px; color:#FFF; padding:1px 0 0 5px; background:url(../images/Map/mark.png) no-repeat;}
+.query_result li .content{ float:left; width:220px;}
+.query_result li div{ line-height:18px;}
+.query_result li div span{ display:list-item;}
+.query_result li a{ color:#00F;}
+
+/*.query_result .page{ clear:both; text-align:center; height:20px; padding-top:5px;}
+.query_result .page a{ color:#00F; text-decoration:none;}
+*/
+
+
+.query_result .page {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FONT-SIZE: 0.85em; PADDING-BOTTOM: 3px; MARGIN: 3px; PADDING-TOP: 3px; FONT-FAMILY: Tahoma,Helvetica,sans-serif; TEXT-ALIGN: center
+}
+.query_result .page A {
+	BORDER-RIGHT: #ccdbe4 1px solid; PADDING-RIGHT: 8px; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #ccdbe4 1px solid; PADDING-LEFT: 8px; PADDING-BOTTOM: 2px; BORDER-LEFT: #ccdbe4 1px solid; COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; BORDER-BOTTOM: #ccdbe4 1px solid; TEXT-DECORATION: none
+}
+.query_result .page A:hover {
+	BORDER-RIGHT: #2b55af 1px solid; BORDER-TOP: #2b55af 1px solid; BACKGROUND-IMAGE: none; BORDER-LEFT: #2b55af 1px solid; COLOR: #fff; BORDER-BOTTOM: #2b55af 1px solid; BACKGROUND-COLOR: #3666d4
+}
+.query_result .page A:active {
+	BORDER-RIGHT: #2b55af 1px solid; BORDER-TOP: #2b55af 1px solid; BACKGROUND-IMAGE: none; BORDER-LEFT: #2b55af 1px solid; COLOR: #fff; BORDER-BOTTOM: #2b55af 1px solid; BACKGROUND-COLOR: #3666d4
+}
+.query_result .page SPAN.current {
+	PADDING-RIGHT: 6px; PADDING-LEFT: 6px; FONT-WEIGHT: bold; PADDING-BOTTOM: 2px; COLOR: #000; MARGIN-RIGHT: 3px; PADDING-TOP: 2px
+}
+.query_result .page SPAN.disabled {
+	DISPLAY: none
+}
+.query_result .page A.next {
+	BORDER-RIGHT: #ccdbe4 2px solid; BORDER-TOP: #ccdbe4 2px solid; MARGIN: 0px 0px 0px 10px; BORDER-LEFT: #ccdbe4 2px solid; BORDER-BOTTOM: #ccdbe4 2px solid
+}
+.query_result .page A.next:hover {
+	BORDER-RIGHT: #2b55af 2px solid; BORDER-TOP: #2b55af 2px solid; BORDER-LEFT: #2b55af 2px solid; BORDER-BOTTOM: #2b55af 2px solid
+}
+.query_result .page A.prev {
+	BORDER-RIGHT: #ccdbe4 2px solid; BORDER-TOP: #ccdbe4 2px solid; MARGIN: 0px 10px 0px 0px; BORDER-LEFT: #ccdbe4 2px solid; BORDER-BOTTOM: #ccdbe4 2px solid
+}
+.query_result .page A.prev:hover {
+	BORDER-RIGHT: #2b55af 2px solid; BORDER-TOP: #2b55af 2px solid; BORDER-LEFT: #2b55af 2px solid; BORDER-BOTTOM: #2b55af 2px solid
+}
+
+/*视频弹出窗口*/
+.video_box { padding:3px 10px; width:91%;}
+.video_box .list { float: left; width: 125px; height: 100%; position:relative; z-index:999; margin-right:-1px;}
+.video_box .list li{ line-height:14px; padding:5px 5px 5px 2px}
+.video_box .list li a{ text-decoration:none; color:#3C3CFF; margin-left:3px}
+.video_box .list li a:hover{ text-decoration:underline;}
+.video_box .selected{ border:#CCC 1px solid; border-right:0; background-color:#f8f8f8;}
+.video_box .video{ float:left; width:240px; height:170px; padding:3px; border:#ccc 1px solid; background-color:#f8f8f8;}
+
+/*信息列表*/
+.map_list{ width:250px; padding:3px 3px 0 3px; float:left; display:none;}
+/*.map_list div{ clear:both;}*/
+.map_list .title{ width:250px; height:22px; line-height:22px; background:url(../images/Map/title_bg.gif) no-repeat; margin-bottom:5px; cursor: pointer;}
+.map_list .title span{ float:left; display:inline-block; padding-left:10px;}
+.map_list .title a{ float:right; display:inline-block; width:12px; height:20px; margin:1px 1px 0 0; background:url(../images/Map/down.gif) no-repeat;}
+.map_list .title a.up{ background:url(../images/Map/up.gif) no-repeat;}
+.map_list .title a.close{ background:url(../images/Map/close.gif) no-repeat; margin-top:7px;}
+
+.map_list ul.select{ padding:0 0 10px 0;}
+.map_list .select li{ padding:0px 5px 0 10px; line-height:25px;}
+.map_list .select li:hover{ background-color:#f7f7f7;}
+.map_list .select li.line{ height:1px; width:250px; background-color:#eee; margin:0; padding:0; font-size:1px; line-height:0;}
+.map_list .select li a{ text-decoration:none; color:#888; padding-right:4px; #padding-right:3px;}
+.map_list .select li a:hover{ text-decoration:underline; color:#0073d5;}
+.map_list .select li a.selected{ text-decoration:underline; color:#0073d5;}
+
+.map_list a.left{ float:left; display:inline-block; width:6px; height:21px; .height:24px; padding-right:5px; background:url(../images/Map/tab_left.gif) no-repeat; border-bottom:#d8d8d8 1px solid;}
+.map_list a.right{ float:right; padding-left:5px; margin:0; display:inline-block; width:6px; height:21px; .height:24px; background:url(../images/Map/tab_right.gif) no-repeat right; border-bottom:#d8d8d8 1px solid;}
+.map_list ul.tab{ float:left; list-style:none; width:228px; height:21px; border-bottom:#d8d8d8 1px solid;}
+.map_list .tab li{ float:left; margin:0 5px; color:#aaa;}
+.map_list .tab li a{ color:#aaa; text-decoration:none;}
+.map_list .tab li.selected{ width:auto; padding:0 7px; height:21px; color:#000; background:url(../images/Map/tab_bg.gif) repeat-x; border:#d8d8d8 1px solid; border-bottom:0; margin-bottom:-1px;}
+.map_list .tab li.selected a{ color:#000;}
+
+/*GPS轨迹*/
+
+.maplocus .searchBar 	
+{
+    height: 30px;
+	width: 100%;
+	background-color: #fff;
+	border-bottom:#c5dbec 1px solid;
+	line-height: 30px;
+	z-index: 15;
+}
+
+.maplocus .dataBar 	
+{
+    height: 120px;
+	width: 100%;
+	background-color: #fff;
+	border-top:#c5dbec 1px solid;
+	z-index: 15;
+	overflow: auto;
+}
+
+.maplocus .searchBar ul {
+	list-style: none;
+	margin: 0;
+	height: 40px;
+	margin: 2px 0 2px 5px;
+}
+.maplocus .searchBar ul li {
+	display: inline;
+	height: 30px;
+	line-height: 30px;
+	margin-left: 3px;
+}
+
+.mapFloatLayer
+{
+    position:absolute;
+    left:20px;
+    top:30px;
+    width:50px;
+    z-index:20;
+}

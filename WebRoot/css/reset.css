@@ -1,0 +1,181 @@
+/*本样式表为基本样式*/
+
+/*---------------------------------------------
+重置margin,padding,对齐方式，字体样式
+-----------------------------------------------*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, form, label, legend, caption
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-family: inherit;
+	font-size:100%;
+	text-align: left;
+	vertical-align: baseline;
+}
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+/*图片边框清空*/
+img,a img {border:none;}
+
+/*表格重置*/
+table { width:100%;}
+th{ background-color:#efefef; text-align:center;}
+td{ background-color:#efefef;}
+
+input{ padding:0; margin:0}
+/*复选框样式*/
+input[type=checkbox]{vertical-align:middle;}
+label[for]{margin-left:5px;padding-left:0px;}
+/*---------------------------------------------
+全局样式
+---------------------------------------------*/
+body{ background-color:#EFEFEF;}/*整体背景色设置为白色,新版本替换成#EFEFEF*/
+body, p, td, th, li
+{
+	font-family:Verdana, Geneva, sans-serif;/*字体样式*/
+	font-size:12px;/*字体大小*/
+	line-height:2;/*字体行高*/
+	color:#000000;/*字体颜色为黑色*/
+}
+
+h1{color:#000;font-size:2.125em;}
+h2{color:#000;font-size:1.75em;}
+h3{color:#000;font-size:1.5em;}
+h4{color:#000;font-size:1.25em;}
+h5{color:#000;font-size:1.125em;}
+h6{color:#000;font-size:1em;}
+ul{list-style-type:none;}
+strong{font-weight:bold;}
+em{font-style:italic;}
+
+/*--------------------------------------------
+公用样式
+----------------------------------------------*/
+/*背景颜色*/
+.bg_color{ background-color:#f3f8fe;}
+.bg_color2{ background-color:#80a7c8;}
+
+/*float*/
+.left 		{float:left;}/*左对齐样式*/
+.right 		{float:right;}/*右对齐样式*/ 
+.clearThis 	{clear:both;}/*清除浮动*/
+
+/*字体*/
+.font12{ font-size:12px;}
+.font12_bold{ font-size:12px; font-weight:bold;}
+.font13{ font-size:13px;}
+.font13_bold{ font-size:13px; font-weight:bold;}
+.font14{ font-size:14px;}
+.font14_bold{ font-size:14px; font-weight:bold;}
+.font15{ font-size:15px;}
+.font15_bold{ font-size:15px; font-weight:bold;}
+.font_weiruan{ font-family:"微软雅黑";}
+
+/*Margin*/
+.ma2 { margin:2px;}
+.mt2 { margin-top:2px;}
+.mr2 { margin-right:2px;}
+.mb2 { margin-bottom:2px;}
+.ml2 { margin-left:2px;}
+.ma3 { margin:3px;}
+.mt3 { margin-top:3px;}
+.mr3 { margin-right:3px;}
+.mb3 { margin-bottom:3px;}
+.ml3 { margin-left:3px;}
+.ma5 { margin:5px;}
+.mt5 { margin-top:5px;}
+.mr5 { margin-right:5px;}
+.mb5 { margin-bottom:5px;}
+.ml5 { margin-left:5px;}
+.ma10 { margin:10px;}
+.mt10 { margin-top:10px;}
+.mr10 { margin-right:10px;}
+.mb10 { margin-bottom:10px;}
+.ml10 { margin-left:10px;}
+
+/*padding*/
+.pa0{ padding:0px;}
+.pa2 { padding:2px;}
+.pa5 { padding:5px;}
+.pt5 { padding-top:5px;}
+.pr5 { padding-right:5px;}
+.pb5 { padding-bottom:5px;}
+.pl5 { padding-left:5px;}
+.pa10 { padding:10px;}
+.pt10 { padding-top:10px;}
+.pr10 { padding-right:10px;}
+.pb10 { padding-bottom:10px;}
+.pl10 { padding-left:10px;}
+
+/* 宽高 */
+.width1{ width:1px;}
+.height1{ height:1px;}
+.width2{ width:2px;}
+.height2{ height:2px;}
+.width3{ width:3px;}
+.height3{ height:3px;}
+.width5{ width:5px;}
+.height5{ height:5px;}
+.width8{ width:8px;}
+.height8{ height:8px;}
+.width10{ width:10px;}
+.height10{ height:10px;}
+.width15{ width:15px;}
+.height15{ height:15px;}
+.width20{ width:20px;}
+.height20{ height:20px;}
+.width40{ width:40px;}
+.height40{ height:40px;}
+.width80{ width:80px;}
+.height80{ height:80px;}
+.width100{ width:100px;}
+.height100{ height:100px;}
+.width120{ width:120px;}
+.height120{ height:120px;}
+.width150{ width:150px;}
+.height150{ height:150px;}
+.width180{ width:180px;}
+.height180{ height:180px;}
+.width200{ width:200px;}
+.height200{ height:200px;}
+.width452{ width:452px;}
+
+/*文本对齐*/
+.text_l{ text-align:left;}
+.text_m{ text-align:center;}
+.text_r{ text-align:right;}
+
+/*浮动*/
+.float_l{ float:left;}
+.float_r{ float:right;}
+
+/*垂直对齐*/
+.vertical_l{ vertical-align:left;}
+.vertical_m{ vertical-align:middle;}
+.vertical_r{ vertical-align:right;}
+.vertical_t{ vertical-align:top;}
+.vertical_b{ vertical-align:bottom;}
+
+/*文本尺寸*/
+.txt2{ width:28px; padding-right:5px;}
+.txt3{ width:40px; padding-right:5px;}
+.txt4{ width:52px; padding-right:5px;}
+.txt5{ width:64px; padding-right:5px;}
+.txt6{ width:76px; padding-right:5px;}
+.txt7{ width:88px; padding-right:5px;}
+.txt8{ width:100px; padding-right:5px;}
+.txt9{ width:112px; padding-right:5px;}
+.txt10{ width:124px; padding-right:5px;}
+
+/*输入框尺寸按字节*/
+.input8{ width:96px;}
+.input10{ width:120px;}
+.input15{ width:180px;}
+.input20{ width:240px;}
